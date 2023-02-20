@@ -1,6 +1,5 @@
 #include<iostream>
 #include<string>
-
 using namespace std;
 
 string toUpperStr(string x){
@@ -18,98 +17,102 @@ string ShowCu(int input,int sem){
     string T2[]={Major("261305"),CoreCourses("261306"),Major("261361")};
     string Fo1[]={Major("261491")};
     string Fo2[]={Innovative("259192"),Major("261405"),Major("261492")};
-    switch (input)
-    {
-    case 1:
+       switch (input)
+        {
+        case 1:
+            if(sem == 1){
+                cout<<"\t\t\t\t First Year Semester 1\n";
+                for(int i=0;i<sizeof(F1)/sizeof(F1[0]);i++){
+                    cout<<"\t\t"<<F1[i]<<"\n";
+                }
+            }else if(sem == 2){
+                cout<<"\t\t\t\t First Year Semester 2\n";
+                for(int i=0;i<sizeof(F2)/sizeof(F2[0]);i++){
+                    cout<<"\t\t"<<F2[i]<<"\n";
+                }
+            }else{
+                cout << "Invalid" << "\n";
+            }
+            break;
+        case 2:
+            if(sem == 1){
+                cout<<"\t\t\t\t Second Year Semester 1\n";
+                for(int i=0;i<sizeof(S1)/sizeof(S1[0]);i++){
+                    cout<<"\t\t"<<S1[i]<<"\n";
+                }
+            }else if(sem == 2){
+                cout<<"\t\t\t\t Second Year Semester 2\n";
+                for(int i=0;i<sizeof(S2)/sizeof(S2[0]);i++){
+                    cout<<"\t\t"<<S1[i]<<"\n";
+                }
+            }else {
+                cout << "Invalid" << "\n";
+            }
+            break;
+        case 3:
+            if(sem == 1){
+            cout<<"\t\t\t\t Third Year Semester 1\n";
+            for(int i=0;i<sizeof(T1)/sizeof(T1[0]);i++){
+                cout<<"\t\t"<<T1[i]<<"\n";
+            }
+            }else if(sem == 2){
+                cout<<"\t\t\t\t Third Year Semester 2\n";
+                for(int i=0;i<sizeof(T2)/sizeof(T2[0]);i++){
+                    cout<<"\t\t"<<T2[i]<<"\n";
+            }
+            }else {
+                cout << "Invalid" << "\n";
+            }
+            break;
+        case 4:
+            if(sem == 1){
+            cout<<"\t\t\t\t Fourth Year Semester 1\n";
+            for(int i=0;i<sizeof(Fo1)/sizeof(Fo1[0]);i++){
+                cout<<"\t\t"<<Fo1[i]<<"\n";
+            }
+            }else if(sem == 2){
+                cout<<"\t\t\t\t Fourth Year Semester 2\n";
+                for(int i=0;i<sizeof(Fo2)/sizeof(Fo2[0]);i++){
+                    cout<<"\t\t"<<Fo2[i]<<"\n";
+                }
+            }else {
+                cout << "Invalid" << "\n";
+            }
+            break;
+        default:
+            cout << "Invalid Page please try again ... T T" << endl;
+            if(input <= 0){
+                input = 0;
+                sem = 2;
+            }
+            if(input >= 5){
+                input = 5;
+                sem = 1;
+            }
+            break;
+        }
+    cout << "Note : If you want to open next page type next but If you want to open prev page type prev." << endl;
+    cout << "Note : If you want to exit this feature type ok." << endl;
+    cout << "Your input : ";
+    string text;
+    cin >> text;
+    text = toUpperStr(text);
+    if(text == "NEXT"){
         if(sem == 1){
-            cout<<"\t\t\t\t First Year Semester 1\n";
-            for(int i=0;i<sizeof(F1)/sizeof(F1[0]);i++){
-                cout<<"\t\t"<<F1[i]<<"\n";
-            }
+            return ShowCu(input,2);
         }else if(sem == 2){
-            cout<<"\t\t\t\t First Year Semester 2\n";
-            for(int i=0;i<sizeof(F2)/sizeof(F2[0]);i++){
-                cout<<"\t\t"<<F2[i]<<"\n";
-            }
-        }else{
-            cout << "Invalid" << "\n";
+            return ShowCu(input+1,1);
         }
-        break;
-    case 2:
+    }else if(text == "PREV"){
         if(sem == 1){
-            cout<<"\t\t\t\t Second Year Semester 1\n";
-            for(int i=0;i<sizeof(S1)/sizeof(S1[0]);i++){
-                cout<<"\t\t"<<S1[i]<<"\n";
-            }
+            return ShowCu(input-1,2);
         }else if(sem == 2){
-            cout<<"\t\t\t\t Second Year Semester 2\n";
-            for(int i=0;i<sizeof(S2)/sizeof(S2[0]);i++){
-                cout<<"\t\t"<<S1[i]<<"\n";
-            }
-        }else {
-            cout << "Invalid" << "\n";
+            return ShowCu(input,1);
         }
-        break;
-    case 3:
-        if(sem == 1){
-        cout<<"\t\t\t\t Third Year Semester 1\n";
-        for(int i=0;i<sizeof(T1)/sizeof(T1[0]);i++){
-            cout<<"\t\t"<<T1[i]<<"\n";
-        }
-        }else if(sem == 2){
-            cout<<"\t\t\t\t Third Year Semester 2\n";
-            for(int i=0;i<sizeof(T2)/sizeof(T2[0]);i++){
-                cout<<"\t\t"<<T2[i]<<"\n";
-        }
-        }else {
-            cout << "Invalid" << "\n";
-        }
-        break;
-    case 4:
-        if(sem == 1){
-        cout<<"\t\t\t\t Fourth Year Semester 1\n";
-        for(int i=0;i<sizeof(Fo1)/sizeof(Fo1[0]);i++){
-            cout<<"\t\t"<<Fo1[i]<<"\n";
-        }
-        }else if(sem == 2){
-            cout<<"\t\t\t\t Fourth Year Semester 2\n";
-            for(int i=0;i<sizeof(Fo2)/sizeof(Fo2[0]);i++){
-                cout<<"\t\t"<<Fo2[i]<<"\n";
-            }
-        }else {
-            cout << "Invalid" << "\n";
-        }
-        break;
-    default:
-        break;
-    }if(input > 0 and input <5){
-        cout << "If you want to open next page type next but If you want to open prev page type prev" << endl;
-        cout << "Your input : ";
-        string text;
-        cin >> text;
-        text = toUpperStr(text);
-        if(text == "NEXT" and input > 0 and input < 5){
-            if(sem == 1 and input >= 1){
-                return ShowCu(input,2);
-            }else if(sem == 2 and input >= 1){
-                return ShowCu(input+1,1);
-            }
-        }else if(text == "PREV"){
-            if(sem == 1 and input >=1){
-                return ShowCu(input-1,2);
-            }else if(sem == 2 and input >= 1){
-                return ShowCu(input,1);
-            }
-        }else{
-            cout << "Invalid your type please try again" << endl;
-            return ShowCu(input,sem);
-        }
+    }else if(text == "OK"){
+        return "0";
     }else{
-        cout << "Invalid Page please try again ... T T" << endl;
-        if(input == 5){
-            return ShowCu(4,2);
-        }else{
-            return ShowCu(1,1);
-        }
+        cout << "Invalid your type please try again" << endl;
+        return ShowCu(input,sem);
     }
 }
