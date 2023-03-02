@@ -1,8 +1,8 @@
 #include<iostream>
+#include<vector>
 #include"Subject.cpp"
 #include"StartProgram.cpp"
 using namespace std;
-
 int main(){
-    Start_program();
+    int x=Start_program();
 }
