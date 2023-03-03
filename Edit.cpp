@@ -136,5 +136,4 @@ void readfile(vector<course> &F1){
 			F1.push_back(s); 	
 		}
 	}
-  
 }
